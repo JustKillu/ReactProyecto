@@ -1,3 +1,23 @@
+.nav.light-mode {
+    background-color: #ff6347; 
+    color: #000000; 
+    border-bottom: 3px solid #cc5200; 
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0 8px 6px -6px black;
+    transition: background-color 0.5s ease, border-color 0.5s ease; 
+}
+  
+.nav.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff; 
+    border-bottom: 3px solid #808080;
+    border-bottom-left-radius: 15px; 
+    border-bottom-right-radius: 15px;
+    box-shadow: 0 8px 6px -6px black;
+    transition: background-color 0.5s ease, border-color 0.5s ease; 
+}
+
 .nav {
     display: flex;
     justify-content: space-between;
@@ -9,7 +29,7 @@
     width: 100%;
     top: 0;
     left: 0;
-    height: 50px;
+    height: 60px;
     box-sizing: border-box;
     z-index: 1;
 }
@@ -23,13 +43,25 @@
 
 .link {
     text-decoration: none;
-    color: black;
-    font-size: 18px;
-    margin: 0 10px;
+    color: inherit; 
+    font-size: 20px;
+    margin: 0 15px;
+    transition: color 0.5s ease; 
 }
 
 .input {
     width: 30%;
     margin-top: -30px;
     margin-left: auto;
+}
+.nav.light-mode .link:hover,
+.nav.light-mode .active {
+    color: #e4abab;
+    transition: color 0.3s ease;
+}
+
+.nav.dark-mode .link:hover,
+.nav.dark-mode .active {
+    color: #ff6347;
+    transition: color 0.3s ease;
 }
