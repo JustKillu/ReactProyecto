@@ -1,9 +1,10 @@
 import React from 'react';
 import './NavBar.css'; 
+import { NavLink } from 'react-router-dom';
 
-const NavBar = ({ setNavbarQuery }) => {
+const NavBar = ({ darkMode, setNavbarQuery }) => {
   return (
-    <nav className="nav">
+    <nav className={`nav ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <input
         className="input"
         type="text"
@@ -11,13 +12,14 @@ const NavBar = ({ setNavbarQuery }) => {
         onChange={(e) => setNavbarQuery(e.target.value)} 
       />
       <ul className="links">
-        <li><a className="link" href="/">Inicio</a></li>
-        <li><a className="link" href="/populares">Populares</a></li>
-        <li><a className="link" href="/catalogo">Catálogo</a></li>
-        <li><a className="link" href="/creditos">Creditos</a></li>
+        <li><NavLink className="link" activeClassName="active" exact to="/">Inicio</NavLink></li>
+        <li><NavLink className="link" activeClassName="active" to="/popular">Populares</NavLink></li>
+        <li><NavLink className="link" activeClassName="active" to="/catalogo">Catálogo</NavLink></li>
+        <li><NavLink className="link" activeClassName="active" to="/creditos">Creditos</NavLink></li>
       </ul>
     </nav>
   );
 };
+
 
 export default NavBar;

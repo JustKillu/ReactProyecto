@@ -39,7 +39,7 @@ function SearchMovies({ navbarQuery }) {
                 fetch(`https://api.themoviedb.org/3/search/movie?query=${navbarQuery}&include_adult=false&language=es-US&page=1`, options)
                     .then(response => response.json())
                     .then(data => {
-                        setResults(data.results.slice(0, 3)); 
+                        setResults(data.results.slice(0, 20)); 
                     })
                     .catch(err => console.error(err));
             } else {
@@ -59,19 +59,20 @@ function SearchMovies({ navbarQuery }) {
     }, [navbarQuery]);
 
     return (
-        <div className="movie-container">
+        <div className={`movie-container_buscarpelis ${results.length > 0 ? 'has-results' : ''}`}>
             {results && results.map((movie) => (
-               <div key={movie.id} className="movie-card">
+               <div key={movie.id} className="movie-card_buscarpelis">
                    <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} className="movie-image" />
-                   <div className="movie-info">
-                       <h2 className="movie-title">{movie.title}</h2>
-                       <p className="movie-overview">{movie.overview}</p> 
-                       <p className="movie-overview">Género: {movie.genre_ids.map(id => genres[id]).join(', ')}</p>
+                   <div className="movie-info_buscarpelis">
+                       <h2 className="movie-title_buscarpelis">{movie.title}</h2>
+                       <p className="movie-overview_buscarpelis">{movie.overview}</p> 
+                       <p className="movie-overview_buscarpelis">Género: {movie.genre_ids.map(id => genres[id]).join(', ')}</p>
                    </div>
                </div>
             ))}
         </div>
     );
+    
 }
 
 export default SearchMovies;
