@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 20px;
+  
 }
 
 .movie-card_catalogo {
@@ -14,6 +15,8 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   background-color: white;
+  border: 0caps;
+  border-radius: 10px;
 }
 
 .movie-card_catalogo:hover {
@@ -30,6 +33,7 @@
 
 .movie-card_catalogo:hover .movie-card-inner_catalogo {
   transform: rotateY(180deg);
+  
 }
 
 .movie-card-front_catalogo,
@@ -38,11 +42,14 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  border: 0caps;
+  border-radius: 10px;
 }
 
 .movie-card-front_catalogo {
   background-color: #8a8a8a;
   color: black;
+  
 }
 
 .movie-card-back_catalogo {
@@ -52,6 +59,7 @@
   padding: 10px;
   box-sizing: border-box;
   overflow: auto;
+  
 }
 
 .movie-card-back_catalogo h1 {
@@ -63,6 +71,8 @@
   height: 90%;
   object-fit: cover;
   margin: 5%;
+  border: 0caps;
+  border-radius: 10px;
 }
 .sort-container {
   display: flex;
