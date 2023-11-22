@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import './creditos.css';
-import {Routes, Route, useNavigate} from 'react-router-dom';
 
+import Container from 'react-bootstrap/Container';
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import Stack from 'react-bootstrap/Stack';
+import Row from "react-bootstrap/Row"
+
 
 let url1 = 'https://github.com/JustKillu?tab=repositories'
 let url2 = 'https://github.com/Fervolts?tab=repositories'
@@ -124,45 +125,52 @@ function App() {
   }, []);
 
   return (
-    <div  className="App w-100 min-vh-100 justify-content-center align-items-center d-flex flex-column center" className = "my-auto">
-      <h1 style={{ padding: "1rem" }} class="center">Quienes somos</h1>
-      <Stack direction="horizontal" gap={2}>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={avatarURL} />
+    
+    <div className="center-text">
+    <h1 style={{ padding: "3rem" }} class="text-center" >Quienes somos</h1>
+    <Container >
+     
+    <div className="row" class="Containercards">
+
+     
+      <Card className='customCard' style={{ width: "17rem" }}>
+        <Card.Img src={avatarURL} />
         <Card.Body>
           <Card.Title>{githubUsername}</Card.Title>
 
-          <Button variant="primary" onClick={() => { window.location.href = url1; } }>
+          <Button className='customButton' variant="primary" onClick={() => { window.location.href = url1; } }>
               Mis Repositorios
           </Button>
         </Card.Body>
       </Card>
       
    
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={avURL} />
+    <Card className='customCard' style={{ width: "17rem" }}>
+      <Card.Img src={avURL} />
       <Card.Body>
         <Card.Title>{gitUsername}</Card.Title>
 
-        <Button variant="primary" onClick={() => { window.location.href = url2; } }>
+        <Button className='customButton' variant="primary" onClick={() => { window.location.href = url2; } }>
             Mis Repositorios
         </Button>
       </Card.Body>
     </Card>
     
 
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={avarURL} />
+    <Card className='customCard' style={{ width: "17rem" }}>
+      <Card.Img src={avarURL} />
       <Card.Body>
         <Card.Title>{githUsername}</Card.Title>
 
-        <Button variant="primary" onClick={() => { window.location.href = url3; } }>
+        <Button className='customButton' variant="primary" onClick={() => { window.location.href = url3; } }>
             Mis Repositorios
         </Button>
       </Card.Body>
     </Card>
     
-    </Stack>
+   
+  </div>
+  </Container>
   </div>
   );
 
