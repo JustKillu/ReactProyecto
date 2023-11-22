@@ -60,6 +60,9 @@ class Popular extends Component {
   handlePrevPage = () => {
     this.setState(prevState => ({ page: prevState.page > 1 ? prevState.page - 1 : 1 }));
   }
+  handleMovieClick = (id) => {
+    window.location.href = `/info-pelicula/${id}`;
+  }
 
   render() {
     return (
@@ -81,7 +84,8 @@ class Popular extends Component {
           <button onClick={this.handleNextPage}>Página siguiente</button>
         </div>
         {this.state.movies.map((movie) => (
-          <div key={movie.id} className="movie-card_catalogo">
+ <div key={movie.id} className="movie-card_catalogo" onClick={() => this.handleMovieClick(movie.id)}>
+            
             <div className="movie-card-inner_catalogo">
               <div className="movie-card-front_catalogo">
                 <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
@@ -93,6 +97,10 @@ class Popular extends Component {
                 <p>Popularidad: {movie.popularity}</p>
                 <p>Cantidad de votos: {movie.vote_count}</p>
                 <p>Fecha de salida: {movie.release_date}</p>
+                <p>Votos: {movie.vote_count}</p>
+                <p>Fecha de salida: {movie.first_air_date}</p>
+                <p>Idioma original: {movie.original_language}</p>
+                <p>⭐ {movie.vote_average}</p>
               </div>
             </div>
           </div>
