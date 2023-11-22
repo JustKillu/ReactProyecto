@@ -22,7 +22,7 @@ function App() {
 
 
   async function repDataURL() {
-    //Datos del usuario
+    //Repositorios
     await fetch("https://api.github.com/users/Fervolts/repos")
       .then((res) => res.json())
       .then(
@@ -41,7 +41,7 @@ function App() {
   }
 
   async function repoDataURL() {
-    //Repositorios
+
     await fetch("https://api.github.com/users/JustKillu/repos")
       .then((res) => res.json())
       .then(
