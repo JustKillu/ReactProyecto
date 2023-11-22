@@ -41,7 +41,7 @@ function App() {
   }
 
   async function repoDataURL() {
-    //Datos del usuario
+    //Repositorios
     await fetch("https://api.github.com/users/JustKillu/repos")
       .then((res) => res.json())
       .then(
@@ -60,7 +60,7 @@ function App() {
   }
 
   async function reppDataURL() {
-    //Datos del usuario
+   
     await fetch("https://api.github.com/users/Carmenuvm/repos")
       .then((res) => res.json())
       .then(
@@ -137,7 +137,7 @@ function App() {
           </Button>
         </Card.Body>
       </Card>
-      {repoData}
+      
    
     <Card style={{ width: "18rem" }}>
       <Card.Img variant="top" src={avURL} />
@@ -149,7 +149,7 @@ function App() {
         </Button>
       </Card.Body>
     </Card>
-    {repData}
+    
 
     <Card style={{ width: "18rem" }}>
       <Card.Img variant="top" src={avarURL} />
@@ -161,7 +161,7 @@ function App() {
         </Button>
       </Card.Body>
     </Card>
-    {reppData}
+    
     </Stack>
   </div>
   );
