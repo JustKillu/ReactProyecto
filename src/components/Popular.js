@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './Popular.css';
 const api_key = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNDFlNjYyMzM0NGE1MzRhOGVmNzRhMzI5NjM5N2JjMSIsInN1YiI6IjY1NTY4YzhmZWVhMzRkMDBhYzM3YjU4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.yFSQsGMM8s0REiFHFlqqpqxYvdTDyutDoavn2ZRSICc";
 
+const unavailable = "https://www.movienewz.com/img/films/poster-holder.jpg"
+
 class Popular extends Component {
   state = {
     movies: [],
@@ -42,7 +44,7 @@ class Popular extends Component {
           <div key={movie.id} className="movie-card_popular">
             <div className="movie-card-inner_popular">
               <div className="movie-card-front_popular">
-                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                <img src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : unavailable} alt={movie.title} />
               </div>
               <div className="movie-card-back_popular">
                 <h1>{movie.name}</h1>
