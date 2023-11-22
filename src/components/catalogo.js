@@ -7,7 +7,8 @@ class Popular extends Component {
   state = {
     movies: [],
     sort: 'popularity',
-    order: 'desc', 
+    order: 'desc',
+    page: 1,
   };
 
   componentDidMount() {
@@ -15,7 +16,7 @@ class Popular extends Component {
   }
 
   componentDidUpdate(_, prevState) {
-    if (prevState.sort !== this.state.sort || prevState.order !== this.state.order) {
+    if (prevState.sort !== this.state.sort || prevState.order !== this.state.order || prevState.page !== this.state.page) {
       this.getPopularMovies();
     }
   }
@@ -29,7 +30,7 @@ class Popular extends Component {
       }
     };
     try {
-      const response = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=es-US&page=1&sort_by=${this.state.sort}.${this.state.order}`, options);
+      const response = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=es-US&page=${this.state.page}&sort_by=${this.state.sort}.${this.state.order}`, options);
       const data = await response.json();
       const genresResponse = await fetch('https://api.themoviedb.org/3/genre/movie/list?language=es', options);
       const genresData = await genresResponse.json();
@@ -52,6 +53,14 @@ class Popular extends Component {
     this.setState({ order: event.target.value });
   }
 
+  handleNextPage = () => {
+    this.setState(prevState => ({ page: prevState.page + 1 }));
+  }
+
+  handlePrevPage = () => {
+    this.setState(prevState => ({ page: prevState.page > 1 ? prevState.page - 1 : 1 }));
+  }
+
   render() {
     return (
       <div className="movie-container_catalogo">
@@ -67,6 +76,9 @@ class Popular extends Component {
             <option value="desc">Descendente</option>
             <option value="asc">Ascendente</option>
           </select>
+          <button onClick={this.handlePrevPage}>Página anterior</button>
+          <span>Página {this.state.page}</span>
+          <button onClick={this.handleNextPage}>Página siguiente</button>
         </div>
         {this.state.movies.map((movie) => (
           <div key={movie.id} className="movie-card_catalogo">
@@ -78,7 +90,9 @@ class Popular extends Component {
                 <h2>{movie.title}</h2>
                 <p>{movie.genres.length > 0 ? movie.genres.join(', ') : 'Géneros no disponibles'}</p>
                 <p>{movie.overview ? movie.overview : 'Resumen no disponible'}</p>
-           
+                <p>Popularidad: {movie.popularity}</p>
+                <p>Cantidad de votos: {movie.vote_count}</p>
+                <p>Fecha de salida: {movie.release_date}</p>
               </div>
             </div>
           </div>
