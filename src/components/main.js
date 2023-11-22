@@ -4,6 +4,7 @@ import App from '../App';
 import { DarkModeProvider } from '../DarkModeContext';
 import Popular from '../populares';
 import Catalogo from '../catalogo';
+import Crédito from '../creditos';
 import { useContext } from 'react';
 import { DarkModeContext } from '../DarkModeContext';
 
@@ -37,6 +38,16 @@ function CatalogoWrapper() {
   return <Catalogo darkMode={darkMode} toggleDarkMode={toggleDarkMode} />;
 }
 
+function CreditosWrapper() {
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+
+  useEffect(() => {
+    document.title = 'Créditos';
+  }, []);
+
+  return <Crédito darkMode={darkMode} toggleDarkMode={toggleDarkMode} />;
+}
+
 function Main() {
   return (
     <DarkModeProvider>
@@ -45,6 +56,7 @@ function Main() {
           <Route path="/" element={<AppWrapper />} />
           <Route path="/popular" element={<PopularWrapper />} />
           <Route path="/catalogo" element={<CatalogoWrapper />} />
+          <Route path="/creditos" element={<CreditosWrapper />} />
         </Routes>
       </Router>
     </DarkModeProvider>
