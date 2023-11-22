@@ -5,6 +5,8 @@ import { DarkModeProvider } from '../DarkModeContext';
 import Popular from '../populares';
 import Catalogo from '../catalogo';
 import Crédito from '../creditos';
+import Peliculas from '../infopeli';
+import MovieDetails from './informacion';
 import { useContext } from 'react';
 import { DarkModeContext } from '../DarkModeContext';
 
@@ -28,6 +30,16 @@ function PopularWrapper() {
   return <Popular darkMode={darkMode} toggleDarkMode={toggleDarkMode} />;
 }
 
+
+function InfoPeliWrapper() {
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+
+  useEffect(() => {
+    document.title = 'Informacion';
+  }, []);
+
+  return <Peliculas darkMode={darkMode} toggleDarkMode={toggleDarkMode} />;
+}
 function CatalogoWrapper() {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
 
@@ -57,6 +69,7 @@ function Main() {
           <Route path="/popular" element={<PopularWrapper />} />
           <Route path="/catalogo" element={<CatalogoWrapper />} />
           <Route path="/creditos" element={<CreditosWrapper />} />
+          <Route path="/info-pelicula/:id" element={<InfoPeliWrapper />} component={MovieDetails} />
         </Routes>
       </Router>
     </DarkModeProvider>
