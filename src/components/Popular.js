@@ -36,12 +36,16 @@ class Popular extends Component {
       console.error('Error fetching popular movies:', error);
     }
   }
+  handleMovieClick = (id) => {
+    window.location.href = `/info-pelicula/${id}`;
+  }
 
   render() {
     return (
       <div className="movie-container_popular">
         {this.state.movies.map((movie) => (
-          <div key={movie.id} className="movie-card_popular">
+        <div key={movie.id} className="movie-card_popular" onClick={() => this.handleMovieClick(movie.id)}>
+          
             <div className="movie-card-inner_popular">
               <div className="movie-card-front_popular">
                 <img src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : unavailable} alt={movie.title} />
