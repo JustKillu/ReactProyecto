@@ -17,6 +17,7 @@
   background-color: white;
   border: 0caps;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .movie-card_popular:hover {
