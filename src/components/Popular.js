@@ -51,7 +51,7 @@ class Popular extends Component {
                 <img src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : unavailable} alt={movie.title} />
               </div>
               <div className="movie-card-back_popular">
-                <h1>{movie.name}</h1>
+                <h1>{movie.title}</h1>
                 <p>{movie.genres.length > 0 ? movie.genres.join(', ') : 'Géneros no disponibles'}</p>
                 <p>{movie.overview ? movie.overview : 'Resumen no disponible'}</p>
               </div>
