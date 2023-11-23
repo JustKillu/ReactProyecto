@@ -40,12 +40,9 @@ async function getGenres() {
     console.error('Error fetching genres:', error);
     return [];
   }
-}
-
-
+} 
 function MovieComponent({ movie, genres }) {
-  return (
-    
+  return (    
     <div className="movie-component">
       <img className="movie-poster" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
       <div className="movie-details">
