@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './SearchMovies.css';
 
 const api_key = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNDFlNjYyMzM0NGE1MzRhOGVmNzRhMzI5NjM5N2JjMSIsInN1YiI6IjY1NTY4YzhmZWVhMzRkMDBhYzM3YjU4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.yFSQsGMM8s0REiFHFlqqpqxYvdTDyutDoavn2ZRSICc";
@@ -62,7 +63,9 @@ function SearchMovies({ navbarQuery }) {
         <div className={`movie-container_buscarpelis ${results.length > 0 ? 'has-results' : ''}`}>
             {results && results.map((movie) => (
                <div key={movie.id} className="movie-card_buscarpelis">
-                   <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} className="movie-image" />
+                   <Link to={`/info-pelicula/${movie.id}`}>
+                     <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} className="movie-image" />
+                   </Link>
                    <div className="movie-info_buscarpelis">
                        <h2 className="movie-title_buscarpelis">{movie.title}</h2>
                        <p className="movie-overview_buscarpelis">{movie.overview}</p> 
