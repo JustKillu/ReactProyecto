@@ -78,8 +78,10 @@ const MovieDetails = () => {
     <div className="movie-details1">
       {movie ? (
         <div>
-          <h2>{movie.title}</h2>
-          <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="movie-image" />
+          <h1 className="Title" >{movie.title}</h1>
+          <div className="poster">
+          <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+          </div>
           <p>{movie.overview}</p>
           <p><strong>Fecha de lanzamiento:</strong> {movie.release_date}</p>
           <p><strong>Calificación promedio:</strong> {movie.vote_average}</p>
@@ -110,7 +112,7 @@ const MovieDetails = () => {
           {video ? (
             <div className="trailer">
               <h3>Tráiler:</h3>
-              <iframe width="100%" height="315" src={`https://www.youtube-nocookie.com/embed/${video.key}`} title={video.name} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe className="Title" width="100%" height="1000" src={`https://www.youtube-nocookie.com/embed/${video.key}`} title={video.name} allowFullScreen ></iframe>
             </div>
           ) : (
             <p>No se encontró un tráiler para esta película.</p>

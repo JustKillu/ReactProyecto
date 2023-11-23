@@ -18,9 +18,9 @@
     padding: 20px;
   }
   .movie-poster {
-    width: 30%;
+    width: 90%;
     height: auto;
-    object-fit: cover;
+    object-fit: all;
     border-radius: 15px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
