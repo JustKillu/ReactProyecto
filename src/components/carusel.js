@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './MovieCarousel.css';
-
+import { Link } from 'react-router-dom';
 const api_key = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNDFlNjYyMzM0NGE1MzRhOGVmNzRhMzI5NjM5N2JjMSIsInN1YiI6IjY1NTY4YzhmZWVhMzRkMDBhYzM3YjU4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.yFSQsGMM8s0REiFHFlqqpqxYvdTDyutDoavn2ZRSICc";
 
 async function getPopularMovies() {
@@ -14,7 +14,7 @@ async function getPopularMovies() {
         }
       };
     try {
-      const response = await fetch(`https://api.themoviedb.org/3/tv/popular?language=es-US&page=1`, options);
+      const response = await fetch(`https://api.themoviedb.org/3/movie/popular?language=es-US&page=1'`, options);
       const data = await response.json();
       console.log(data)
       return data.results ? data.results : [];
@@ -44,7 +44,9 @@ async function getGenres() {
 function MovieComponent({ movie, genres }) {
   return (    
     <div className="movie-component">
+        <Link to={`/info-pelicula/${movie.id}`}>
       <img className="movie-poster" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+      </Link>
       <div className="movie-details">
         <h1>{movie.name}</h1>
         <p>{movie.overview}</p>
