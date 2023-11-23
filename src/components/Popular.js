@@ -22,7 +22,7 @@ class Popular extends Component {
       }
     };
     try {
-      const response = await fetch(`https://api.themoviedb.org/3/tv/popular?language=es-US&page=1`, options);
+      const response = await fetch(`https://api.themoviedb.org/3/movie/popular?language=es-US&page=1'`, options);
       const data = await response.json();
       const genresResponse = await fetch('https://api.themoviedb.org/3/genre/movie/list?language=es', options);
       const genresData = await genresResponse.json();

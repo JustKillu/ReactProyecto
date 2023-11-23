@@ -19,7 +19,7 @@ const MovieDetails = () => {
       }
     };
     try {
-      const response = await fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options);
+      const response = await fetch('https://api.themoviedb.org/3/genre/movie/list?language=es', options);
       const data = await response.json();
       return data.genres ? data.genres : [];
     } catch (error) {
@@ -52,7 +52,7 @@ const MovieDetails = () => {
     .catch(error => console.error(error));
   
 
-    fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
+    fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=es-US`, options)
       .then(response => response.json())
       .then(data => {
         if (data.results) {
@@ -62,7 +62,7 @@ const MovieDetails = () => {
       })
       .catch(error => console.error(error));
 
-    fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options)
+    fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=es-US`, options)
       .then(response => response.json())
       .then(data => {
         if (data.cast) {
@@ -79,6 +79,7 @@ const MovieDetails = () => {
       {movie ? (
         <div>
           <h2>{movie.title}</h2>
+          <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="movie-image" />
           <p>{movie.overview}</p>
           <p><strong>Fecha de lanzamiento:</strong> {movie.release_date}</p>
           <p><strong>Calificación promedio:</strong> {movie.vote_average}</p>
