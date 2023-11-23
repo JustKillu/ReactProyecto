@@ -48,7 +48,7 @@ function MovieComponent({ movie, genres }) {
       <img className="movie-poster" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
       </Link>
       <div className="movie-details">
-        <h1>{movie.name}</h1>
+        <h1>{movie.title}</h1>
         <p>{movie.overview}</p>
         <p>Género: {movie.genre_ids.map(id => genres[id]).join(', ')}</p>
         <p>Votos: {movie.vote_count}</p>
