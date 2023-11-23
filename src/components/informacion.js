@@ -76,13 +76,13 @@ const MovieDetails = () => {
 
   return (
     <div className="movie-details1">
-      {movie && (
+      {movie ? (
         <div>
           <h2>{movie.title}</h2>
           <p>{movie.overview}</p>
           <p><strong>Fecha de lanzamiento:</strong> {movie.release_date}</p>
           <p><strong>Calificación promedio:</strong> {movie.vote_average}</p>
-          {actors.length > 0 && (
+          {actors.length > 0 ? (
             <div>
               <h3>Actores:</h3>
               <ul>
@@ -91,24 +91,32 @@ const MovieDetails = () => {
                 ))}
               </ul>
             </div>
+          ) : (
+            <p>No se encontraron actores para esta película.</p>
           )}
-    {movie.genres && movie.genres.length > 0 && (
-  <div>
-    <h3>Géneros:</h3>
-    <ul>
-      {movie.genres.map((genre, index) => (
-        <li key={index}>{genre}</li>
-      ))}
-    </ul>
-  </div>
-)}
-          {video && (
+          {movie.genres && movie.genres.length > 0 ? (
+            <div>
+              <h3>Géneros:</h3>
+              <ul>
+                {movie.genres.map((genre, index) => (
+                  <li key={index}>{genre}</li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <p>No se encontraron géneros para esta película.</p>
+          )}
+          {video ? (
             <div className="trailer">
               <h3>Tráiler:</h3>
               <iframe width="100%" height="315" src={`https://www.youtube-nocookie.com/embed/${video.key}`} title={video.name} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
+          ) : (
+            <p>No se encontró un tráiler para esta película.</p>
           )}
         </div>
+      ) : (
+        <p>Cargando detalles de la película...</p>
       )}
     </div>
   );
