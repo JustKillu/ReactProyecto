@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Tu Proyecto de React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este es un archivo README para tu proyecto de React. Aquí encontrarás las instrucciones para clonar, instalar y ejecutar tu aplicación web.
 
-## Available Scripts
+## Clonar el repositorio
 
-In the project directory, you can run:
+Para obtener una copia local del proyecto, necesitas clonar el repositorio de GitHub. Aquí te explicamos cómo hacerlo:
 
-### `npm start`
+1. Asegúrate de tener Git instalado en tu sistema. Si no lo tienes, puedes descargarlo desde [aquí](https://git-scm.com/downloads).
+2. Abre una terminal.
+3. Elige el directorio donde quieres clonar el proyecto usando el comando `cd`.
+4. Una vez en el directorio deseado, ejecuta el siguiente comando para clonar el repositorio:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+git clone https://github.com/JustKillu/ReactProyecto.git
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Instalación
 
-### `npm test`
+Para instalar las dependencias necesarias para tu proyecto, sigue estos pasos:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Asegúrate de tener Node.js y npm instalados en tu sistema. Si no los tienes, puedes descargarlos desde [aquí](https://nodejs.org/).
+2. Abre una terminal.
+3. Navega al directorio de tu proyecto (que acabas de clonar) usando el comando `cd`.
+4. Una vez en el directorio del proyecto, ejecuta el siguiente comando para instalar las dependencias:
 
-### `npm run build`
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Ejecución
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Para ejecutar tu aplicación web, sigue estos pasos:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Abre una terminal.
+2. Navega al directorio de tu proyecto usando el comando `cd`.
+3. Una vez en el directorio del proyecto, ejecuta el siguiente comando para iniciar el servidor:
 
-### `npm run eject`
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Tu aplicación ahora debería estar ejecutándose en `http://localhost:3000`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Rutas Disponibles
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Tu aplicación web de React tiene las siguientes rutas disponibles:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) .
+- `/` - Página de inicio
+- `/popular` - Muestra las películas más populares del momento
+- `/catalogo` - Muestra el catálogo de películas
+- `/creditos` - Muestra los créditos de los autores del proyecto
