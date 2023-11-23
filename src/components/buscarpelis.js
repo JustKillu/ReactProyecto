@@ -25,10 +25,12 @@ async function getGenres() {
 function SearchMovies({ navbarQuery }) { 
     const [results, setResults] = useState([]);
     const [genres, setGenres] = useState({});
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const search = async () => {
             if (navbarQuery !== '') {
+                setLoading(true);
                 const options = {
                     method: 'GET',
                     headers: {
@@ -41,8 +43,12 @@ function SearchMovies({ navbarQuery }) {
                     .then(response => response.json())
                     .then(data => {
                         setResults(data.results.slice(0, 20)); 
+                        setLoading(false);
                     })
-                    .catch(err => console.error(err));
+                    .catch(err => {
+                        console.error(err);
+                        setLoading(false);
+                    });
             } else {
                 setResults([]);
             }
@@ -61,7 +67,7 @@ function SearchMovies({ navbarQuery }) {
 
     return (
         <div className={`movie-container_buscarpelis ${results.length > 0 ? 'has-results' : ''}`}>
-            {results && results.map((movie) => (
+            {loading ? <p>Buscando...</p> : navbarQuery !== '' && (results.length > 0 ? results.map((movie) => (
                <div key={movie.id} className="movie-card_buscarpelis">
                    <Link to={`/info-pelicula/${movie.id}`}>
                      <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} className="movie-image" />
@@ -72,7 +78,7 @@ function SearchMovies({ navbarQuery }) {
                        <p className="movie-overview_buscarpelis">Género: {movie.genre_ids.map(id => genres[id]).join(', ')}</p>
                    </div>
                </div>
-            ))}
+            )) : <div className="movie-overview_buscarpelis"><p>No se encontró nada</p></div>)}
         </div>
     );
     
