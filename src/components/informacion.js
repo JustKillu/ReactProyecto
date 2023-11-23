@@ -37,7 +37,7 @@ const MovieDetails = () => {
       }
     };
 
-    fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
+    fetch(`https://api.themoviedb.org/3/movie/${id}?language=es-US`, options)
     .then(response => response.json())
     .then(data => {
       if (data.genres) {
